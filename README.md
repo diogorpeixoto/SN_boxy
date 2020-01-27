@@ -1,98 +1,51 @@
-# Insight_Project_Framework
-Framework for machine learning projects at Insight Data Science.
+# SN_boxy
 
-## Motivation for this project format:
-- **Insight_Project_Framework** : Put all source code for production within structured directory
-- **tests** : Put all source code for testing in an easy to find location
-- **configs** : Enable modification of all preset variables within single directory (consisting of one or many config files for separate tasks)
-- **data** : Include example a small amount of data in the Github repository so tests can be run to validate installation
-- **build** : Include scripts that automate building of a standalone environment
-- **static** : Any images or content to include in the README or web framework if part of the pipeline
+This repository contains an implementation of YOLOv3 (https://github.com/experiencor/keras-yolo3) with and without Switchable Normalization (https://arxiv.org/abs/1806.10779) on the boxy dataset (https://boxy-dataset.com/boxy/).
+
+## This repository is organized as follows:
+
+- **utils** : All source code for production
+- **tests** : All code for testing
+- **configs** : Configuration files.
+- **data** : Example a small amount of data from boxy dataset to validate installation
 
 ## Setup
-Clone repository and update python path
+Clone repository and create a new environment
 ```
-repo_name=Insight_Project_Framework # URL of your new repository
-username=mrubash1 # Username for your personal github account
-git clone https://github.com/$username/$repo_name
-cd $repo_name
-echo "export $repo_name=${PWD}" >> ~/.bash_profile
-echo "export PYTHONPATH=$repo_name/src:${PYTHONPATH}" >> ~/.bash_profile
-source ~/.bash_profile
+conda create -n SN_boxy python=3.6
+source activate SN_boxy
+cd SN_boxy
+pip install -r requirements.txt
 ```
-Create new development branch and switch onto it
-```
-branch_name=dev-readme_requisites-20180905 # Name of development branch, of the form 'dev-feature_name-date_of_creation'}}
-git checkout -b $branch_name
-```
+## Data
 
-## Initial Commit
-Lets start with a blank slate: remove `.git` and re initialize the repo
-```
-cd $repo_name
-rm -rf .git   
-git init   
-git status
-```  
-You'll see a list of file, these are files that git doesn't recognize. At this point, feel free to change the directory names to match your project. i.e. change the parent directory Insight_Project_Framework and the project directory Insight_Project_Framework:
-Now commit these:
-```
-git add .
-git commit -m "Initial commit"
-git push origin $branch_name
-```
+Full boxy dataset available at https://boxy-dataset.com/boxy/.
+Place training data 
 
-## Requisites
 
-- List all packages and software needed to build the environment
-- This could include cloud command line tools (i.e. gsutil), package managers (i.e. conda), etc.
-
-#### Dependencies
-
-- [Streamlit](streamlit.io)
-
-#### Installation
-To install the package above, pleae run:
-```shell
-pip install -r requiremnts
-```
-
-## Build Environment
-- Include instructions of how to launch scripts in the build subfolder
-- Build scripts can include shell scripts or python setup.py files
-- The purpose of these scripts is to build a standalone environment, for running the code in this repository
-- The environment can be for local use, or for use in a cloud environment
-- If using for a cloud environment, commands could include CLI tools from a cloud provider (i.e. gsutil from Google Cloud Platform)
-```
-# Example
-
-# Step 1
-# Step 2
-```
 
 ## Configs
-- We recommond using either .yaml or .txt for your config files, not .json
-- **DO NOT STORE CREDENTIALS IN THE CONFIG DIRECTORY!!**
-- If credentials are needed, use environment variables or HashiCorp's [Vault](https://www.vaultproject.io/)
+
+- Use /configs/config_boxy.json file 
 
 
 ## Test
-- Include instructions for how to run all tests after the software is installed
+
+- Test that json labels from boxy dataset (training and validation) are valid
 ```
 # Example
 
-# Step 1
-# Step 2
+python label_checks.py -/SN_boxy/labels_train/boxy_labels_train.json 
+
 ```
 
 ## Run Inference
-- Include instructions on how to run inference
-- i.e. image classification on a single image for a CNN deep learning project
+- Run predict.py on raw images to detect vehicles
 ```
 # Example
 
-# Step 1
-# Step 2
+python predict.py -c /SN_boxy/configs/config_boxy.json /SN_boxy/data/raw/
+
 ```
 
 ## Build Model
