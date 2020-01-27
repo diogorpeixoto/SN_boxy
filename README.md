@@ -44,7 +44,7 @@ python label_checks.py -/SN_boxy/labels_train/boxy_labels_train.json
 ```
 # Example
 
-python predict.py -c /SN_boxy/configs/config_boxy.json /SN_boxy/data/raw/
+python predict.py -c /SN_boxy/configs/config_boxy.json -i /SN_boxy/data/raw/
 
 ```
 
