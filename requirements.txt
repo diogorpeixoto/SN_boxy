@@ -1,4 +1,12 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 
-streamlit
+keras
+tensorflow
+matplotlib
+numpy
+h5py
+opencv
+pandas
+pyyaml
+requests
