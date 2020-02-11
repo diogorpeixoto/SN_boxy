@@ -61,14 +61,14 @@ If using the scaled down version of the images you should use <resize factor> = 
 
 ## Configs
 
-- Use /configs/config_boxy.json file 
+- Use the available config files in /SN_boxy/configs/
 
-Edit file such that, "train_image_folder" , "train_annot_folder" , "valid_image_folder" , "valid_annot_folder" are set to the directories where the training images and annotations (after conversion to VOC format) are stored. Same hold for the validation images and annotations.
+Edit files such that, "train_image_folder" , "train_annot_folder" , "valid_image_folder" , "valid_annot_folder" are set to the directories where the training images and annotations (after conversion to VOC format) are stored. Same hold for the validation images and annotations.
 
 
 ## Run Inference
 
-- Run predict.py on raw images to detect vehicles
+- Run predict.py on raw images to detect vehicles. Use the default config_boxy.json file 
 ```
 # Example
 
@@ -78,23 +78,23 @@ python predict.py -c /SN_boxy/configs/config_boxy.json -i /SN_boxy/data/raw/
 
 ## Evaluate Model
 
-- Run evaluate.py on raw images to detect vehicles and compare performance to ground truth from annotation files. Ensure that configuration file is set up correctly according to the Configs instructions above.
+- Run evaluate.py on raw images to detect vehicles and compare performance to ground truth from annotation files. Ensure that configuration file (config_boxy_evaluate.json) is set up correctly according to the Configs instructions above.
 
 ```
 # Example
 
-python evaluate.py -c /SN_boxy/configs/config_boxy.json
+python evaluate.py -c /SN_boxy/configs/config_boxy_evaluate.json
 
 ```
 
 ## Train Model
 
-- Run train.py on images and corresponding annotation files to learn to detect vehicles. Ensure that configuration file is set up correctly according to the Configs instructions above.
+- Run train.py on images and corresponding annotation files to learn to detect vehicles. Ensure that configuration file (config_boxy_evaluate.json) is set up correctly according to the Configs instructions above.
 
 ```
 # Example
 
-python train.py -c /SN_boxy/configs/config_boxy.json
+python train.py -c /SN_boxy/configs/config_boxy_train.json
 
 ```
 
