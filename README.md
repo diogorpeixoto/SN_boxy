@@ -76,22 +76,17 @@ python predict.py -c /SN_boxy/configs/config_boxy.json -i /SN_boxy/data/raw/
 ```
 
 ## Evaluate Model
-- Include instructions of how to build the model
-- This can be done either locally or on the cloud
+
+- Run evaluate.py on raw images to detect vehicles and compare performance to ground truth from annotation files. Ensure that configuration file is set up correctly according to the Configs instructions above.
+
 ```
 # Example
 
-# Step 1
-# Step 2
+python evaluate.py -c /SN_boxy/configs/config_boxy.json
+
 ```
 
-## Serve Model
-- Include instructions of how to set up a REST or RPC endpoint
-- This is for running remote inference via a custom model
-```
-# Example
+## Train Model
 
-# Step 1
-# Step 2
-```
+
 
