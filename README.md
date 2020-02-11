@@ -1,6 +1,7 @@
 # SN_boxy
 
-This repository contains an implementation of YOLOv3 (https://github.com/experiencor/keras-yolo3) with and without Switchable Normalization (https://arxiv.org/abs/1806.10779) on the boxy dataset (https://boxy-dataset.com/boxy/).
+The goal of this project was to perform vehicle detection across different types of weather, traffic and light conditions. 
+To do so I used an implementation of YOLOv3 (https://github.com/experiencor/keras-yolo3) with Switchable Normalization (https://arxiv.org/abs/1806.10779 , currently in development) and with Batch Normalization on the boxy dataset (https://boxy-dataset.com/boxy/).
 
 ## This repository is organized as follows:
 
@@ -87,6 +88,16 @@ python evaluate.py -c /SN_boxy/configs/config_boxy.json
 ```
 
 ## Train Model
+
+- Run train.py on images and corresponding annotation files to learn to detect vehicles. Ensure that configuration file is set up correctly according to the Configs instructions above.
+
+```
+# Example
+
+python train.py -c /SN_boxy/configs/config_boxy.json
+
+```
+
 
 
 
