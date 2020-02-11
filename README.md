@@ -8,8 +8,10 @@ This repository contains an implementation of YOLOv3 (https://github.com/experie
 - **tests** : All code for testing
 - **configs** : Configuration files.
 - **data** : Example a small amount of data from boxy dataset to validate installation
+- **deps** : Dependencies with code from YOLO v3 repository
 
 ## Setup
+
 Clone repository and create a new environment
 ```
 conda create -n SN_boxy python=3.6
@@ -17,19 +19,20 @@ source activate SN_boxy
 cd SN_boxy
 pip install -r requirements.txt
 ```
-## Data
 
+## Image Data
+
+For simplicity and to allow for bash scripts to download the data all the urls are listed in file: boxy_file_list_all.txt
+Place training and validation data in data directory. 
 Full boxy dataset available at https://boxy-dataset.com/boxy/.
-Place training data 
 
 
+## Annotation Data
 
-## Configs
-
-- Use /configs/config_boxy.json file 
+Original annotation data for train and validation in the boxy dataset is available in 'boxy_labels_train.json' and 'boxy_labels_valid.json' files whose urls are in boxy_file_list_all.txt
 
 
-## Test
+## Test Annotation Data
 
 - Test that json labels from boxy dataset (training and validation) are valid
 ```
@@ -39,7 +42,31 @@ python label_checks.py -/SN_boxy/labels_train/boxy_labels_train.json
 
 ```
 
+## Convert Annotation Data
+
+To allow YOLO to use annotations in VOC format run jsonToVOC2.py in the 'utils' directory as so:
+
+```
+python jsonToVOC2.py <json file path> <output directory name>  <resize factor>
+
+# Example
+
+python jsonToVOC2.py -/SN_boxy/labels_train/boxy_labels_train.json -/SN_boxy/labels/train  2
+
+```
+
+Please keep in mind that if using the full resolution dataset from boxy you should use <resize factor> = 1.
+If using the scaled down version of the images you should use <resize factor> = 2.  
+
+## Configs
+
+- Use /configs/config_boxy.json file 
+
+Edit file such that, "train_image_folder" , "train_annot_folder" , "valid_image_folder" , "valid_annot_folder" are set to the directories where the training images and annotations (after conversion to VOC format) are stored. Same hold for the validation images and annotations.
+
+
 ## Run Inference
+
 - Run predict.py on raw images to detect vehicles
 ```
 # Example
@@ -48,7 +75,7 @@ python predict.py -c /SN_boxy/configs/config_boxy.json -i /SN_boxy/data/raw/
 
 ```
 
-## Build Model
+## Evaluate Model
 - Include instructions of how to build the model
 - This can be done either locally or on the cloud
 ```
@@ -68,12 +95,3 @@ python predict.py -c /SN_boxy/configs/config_boxy.json -i /SN_boxy/data/raw/
 # Step 2
 ```
 
-## Analysis
-- Include some form of EDA (exploratory data analysis)
-- And/or include benchmarking of the model and results
-```
-# Example
-
-# Step 1
-# Step 2
-```
