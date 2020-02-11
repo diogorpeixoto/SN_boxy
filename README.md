@@ -8,7 +8,7 @@ To do so I used an implementation of YOLOv3 (https://github.com/experiencor/kera
 - **utils** : All source code for production
 - **tests** : All code for testing
 - **configs** : Configuration files.
-- **data** : Example a small amount of data from boxy dataset to validate installation
+- **data** : Small amount of example data from boxy dataset to validate installation
 - **deps** : Dependencies with code from YOLO v3 repository
 
 ## Setup
