@@ -3,6 +3,8 @@
 The goal of this project was to perform vehicle detection across different types of weather, traffic and light conditions. 
 To do so I used an implementation of YOLOv3 (https://github.com/experiencor/keras-yolo3) with Switchable Normalization (https://arxiv.org/abs/1806.10779 , currently in development) and with Batch Normalization on the boxy dataset (https://boxy-dataset.com/boxy/).
 
+Slides of the latest demo can be found here: http://bit.ly/driveflexMLslidedeck
+
 ## This repository is organized as follows:
 
 - **utils** : All source code for production
@@ -58,7 +60,7 @@ python jsonToVOC2.py -/SN_boxy/labels_train/boxy_labels_train.json -/SN_boxy/lab
 
 Please keep in mind that if using the full resolution dataset from boxy you should use 'resize factor' = 1.
 If using the scaled down version of the images you should use 'resize factor' = 2.  
-dev-readme_requisites-20200120
+
 
 ### Configs
 
@@ -100,8 +102,5 @@ python evaluate.py -c /SN_boxy/configs/config_boxy_evaluate.json
 python train.py -c /SN_boxy/configs/config_boxy_train.json
 
 ```
-
-dev-readme_requisites-20200120
-
 
 
