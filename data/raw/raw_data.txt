@@ -1,0 +1,2 @@
+Example png files from boxy dataset. 
+Dimensions: 1232 x 1028

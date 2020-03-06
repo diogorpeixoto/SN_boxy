@@ -58,8 +58,10 @@ python jsonToVOC2.py -/SN_boxy/labels_train/boxy_labels_train.json -/SN_boxy/lab
 
 Please keep in mind that if using the full resolution dataset from boxy you should use 'resize factor' = 1.
 If using the scaled down version of the images you should use 'resize factor' = 2.  
+dev-readme_requisites-20200120
 
 ### Configs
+
 
 - Use the available config files in /SN_boxy/configs/
 
@@ -98,5 +100,8 @@ python evaluate.py -c /SN_boxy/configs/config_boxy_evaluate.json
 python train.py -c /SN_boxy/configs/config_boxy_train.json
 
 ```
+
+dev-readme_requisites-20200120
+
 
 

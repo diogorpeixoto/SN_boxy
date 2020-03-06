@@ -1,0 +1,1 @@
+Configuration file for boxy dataset based on keras-yolo3 configuration files
